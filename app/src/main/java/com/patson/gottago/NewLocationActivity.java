@@ -6,20 +6,28 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.parse.ParseUser;
 
-public class MainActivity extends ActionBarActivity {
+
+public class NewLocationActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_new_location);
+
+
+        if (ParseUser.getCurrentUser() == null) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        }
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_new_location, menu);
         return true;
     }
 
@@ -31,12 +39,8 @@ public class MainActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_logout) {
+        if (id == R.id.action_settings) {
             return true;
-        }
-        if (id == R.id.action_new) {
-            Intent intent = new Intent(this, NewLocationActivity.class);
-            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);

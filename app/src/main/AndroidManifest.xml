@@ -30,10 +30,35 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAq9Nx3__RDio30pnqqc4-hnTYPJ13OFnk"/>
+            android:value="AIzaSyBumpVuOqJ6uXjAHN60PcMN9EQBl_ODZsY" />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name=".NewLocationActivity"
+            android:label="@string/title_activity_new_location"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.patson.gottago.MainActivity" />
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login"
+            android:parentActivityName=".NewLocationActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.patson.gottago.NewLocationActivity" />
+        </activity>
+        <activity
+            android:name=".SignUpActivity"
+            android:label="@string/title_activity_sign_up"
+            android:parentActivityName=".LoginActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.patson.gottago.LoginActivity" />
+        </activity>
     </application>
 
 </manifest>
