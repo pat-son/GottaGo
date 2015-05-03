@@ -1,6 +1,5 @@
 package com.patson.gottago.newlocation;
 
-
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -8,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.parse.ParseUser;
+import com.patson.gottago.GPSTracker;
 import com.patson.gottago.LoginActivity;
 import com.patson.gottago.MainActivity;
 import com.patson.gottago.R;
@@ -18,6 +18,8 @@ import butterknife.OnClick;
 
 public class NewLocationActivity extends ActionBarActivity {
 
+    GPSTracker gps;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,8 +29,16 @@ public class NewLocationActivity extends ActionBarActivity {
     }
 
     @OnClick(R.id.locationButton) void useMyLocation() {
-        Intent intent = new Intent(this, LocationDetailsActivity.class);
-        startActivity(intent);
+        gps = new GPSTracker(this);
+        if(gps.canGetLocation()) {
+            double latitude = gps.getLatitude();
+            double longitude = gps.getLongitude();
+
+            Intent intent = new Intent(this, LocationDetailsActivity.class);
+            intent.putExtra("latitude", latitude);
+            intent.putExtra("longitude", longitude);
+            startActivity(intent);
+        }
     }
 
     @OnClick(R.id.addressButton) void enterAddress() {
@@ -67,4 +77,5 @@ public class NewLocationActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }

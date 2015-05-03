@@ -28,4 +28,5 @@
     <string name="enter_address_error_message">Make sure that all text fields are filled!</string>
     <string name="geocoder_exception_error_message">Your request could not be completed. Please check your internet connection, or try again later.</string>
     <string name="no_location_error_message">No location found for given address.</string>
+    <string name="connection_failed_error_message">Connection to internet failed.</string>
 </resources>
