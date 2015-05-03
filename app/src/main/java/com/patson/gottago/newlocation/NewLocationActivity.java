@@ -1,4 +1,5 @@
-package com.patson.gottago;
+package com.patson.gottago.newlocation;
+
 
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
@@ -7,6 +8,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.parse.ParseUser;
+import com.patson.gottago.LoginActivity;
+import com.patson.gottago.MainActivity;
+import com.patson.gottago.R;
+
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
 public class NewLocationActivity extends ActionBarActivity {
@@ -15,12 +22,25 @@ public class NewLocationActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_location);
+        ButterKnife.inject(this);
 
+    }
 
-        if (ParseUser.getCurrentUser() == null) {
-            Intent intent = new Intent(this, LoginActivity.class);
-            startActivity(intent);
-        }
+    @OnClick(R.id.locationButton) void useMyLocation() {
+        Intent intent = new Intent(this, LocationDetailsActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.addressButton) void enterAddress() {
+        Intent intent = new Intent(this, EnterAddressActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        //Override functionality of the back button to prevent navigation back to the login screen
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
 
@@ -39,8 +59,10 @@ public class NewLocationActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_logout) {
+            ParseUser.logOut();
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);

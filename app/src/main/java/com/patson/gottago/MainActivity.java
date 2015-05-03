@@ -6,6 +6,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.parse.ParseUser;
+import com.patson.gottago.newlocation.NewLocationActivity;
+
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 
 public class MainActivity extends ActionBarActivity {
 
@@ -13,8 +19,22 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.inject(this);
+
     }
 
+    @OnClick(R.id.newLocationButton) void addNewLocation() {
+        //If the user isn't logged in, send them to the login screen
+        if ( ParseUser.getCurrentUser() == null ) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        }
+        //otherwise go to the add page
+        else {
+            Intent intent = new Intent(this, NewLocationActivity.class);
+            startActivity(intent);
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -32,11 +52,7 @@ public class MainActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_logout) {
-            return true;
-        }
-        if (id == R.id.action_new) {
-            Intent intent = new Intent(this, NewLocationActivity.class);
-            startActivity(intent);
+            ParseUser.logOut();
         }
 
         return super.onOptionsItemSelected(item);
