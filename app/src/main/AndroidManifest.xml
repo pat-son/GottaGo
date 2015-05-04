@@ -76,6 +76,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.patson.gottago.newlocation.NewLocationActivity" />
         </activity>
+        <activity
+            android:name=".MapDetailActivity"
+            android:label="@string/title_activity_map_detail"
+            android:parentActivityName=".MainActivity">
+        </activity>
     </application>
 
 </manifest>

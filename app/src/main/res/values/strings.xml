@@ -35,4 +35,8 @@
     <string name="gottago_button_text">I Gotta Go!</string>
     <string name="error_title_sorry">Sorry!</string>
     <string name="empty_list_error_message">There are no locations nearby. Add some to begin!</string>
+    <string name="title_activity_map_detail">Location Details</string>
+    <string name="name_label_text"/>
+    <string name="temp_string_value">...</string>
+    <string name="already_liked_error_message">You\'ve already liked this post!</string>
 </resources>

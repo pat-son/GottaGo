@@ -54,7 +54,15 @@ public class MainActivity extends ActionBarActivity implements OnMapReadyCallbac
         mGoogleMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
             @Override
             public void onInfoWindowClick(Marker marker) {
-                //TODO: Scan through the set of restroom locations and start the detail view
+                for (RestroomLocation location : mRestroomLocations) {
+                    if (location.getMarkerId().equals(marker.getId())) {
+                        Log.d("MainActivity", "Loc: " + location.getMarkerId() + ", Mark: " + marker.getId());
+                        Intent intent = new Intent(MainActivity.this, MapDetailActivity.class);
+                        intent.putExtra("location", location);
+                        startActivity(intent);
+                        break;
+                    }
+                }
             }
         });
         GPSTracker gps = new GPSTracker(this);
