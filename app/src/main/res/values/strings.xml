@@ -29,4 +29,10 @@
     <string name="geocoder_exception_error_message">Your request could not be completed. Please check your internet connection, or try again later.</string>
     <string name="no_location_error_message">No location found for given address.</string>
     <string name="connection_failed_error_message">Connection to internet failed.</string>
+    <string name="name_empty_error_message">Make sure that you enter a name for this location!</string>
+    <string name="radio_unselected_error_message">Make sure to select a type and condition!</string>
+    <string name="no_location_error_messsage">You must enable location services to use this feature.</string>
+    <string name="gottago_button_text">I Gotta Go!</string>
+    <string name="error_title_sorry">Sorry!</string>
+    <string name="empty_list_error_message">There are no locations nearby. Add some to begin!</string>
 </resources>

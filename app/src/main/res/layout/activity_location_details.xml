@@ -31,19 +31,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Singles"
-            android:id="@+id/singlesButton"/>
+            android:id="@+id/singlesButton"
+            android:onClick="onTypeClicked"/>
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Doubles"
-            android:id="@+id/doublesButton"/>
+            android:text="Stalls"
+            android:id="@+id/stallsButton"
+            android:onClick="onTypeClicked"/>
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Both"
-            android:id="@+id/bothButton"/>
+            android:id="@+id/bothButton"
+            android:onClick="onTypeClicked"/>
     </RadioGroup>
 
     <TextView
@@ -77,31 +80,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Terrible"
-            android:id="@+id/radioButton1"/>
+            android:id="@+id/radioButton1"
+            android:onClick="onConditionClicked"/>
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Poor"
-            android:id="@+id/radioButton2"/>
+            android:id="@+id/radioButton2"
+            android:onClick="onConditionClicked"/>
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Fair"
-            android:id="@+id/radioButton3"/>
+            android:id="@+id/radioButton3"
+            android:onClick="onConditionClicked"/>
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Good"
-            android:id="@+id/radioButton4"/>
+            android:id="@+id/radioButton4"
+            android:onClick="onConditionClicked"/>
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Great"
-            android:id="@+id/radioButton5"/>
+            android:id="@+id/radioButton5"
+            android:onClick="onConditionClicked"/>
     </RadioGroup>
 
     <CheckBox

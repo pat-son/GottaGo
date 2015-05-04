@@ -15,6 +15,24 @@ public class RestroomLocation implements Parcelable {
     private int mHandicap;
     private double mLatitude;
     private double mLongitude;
+    private String mObjectId;
+    private String mMarkerId;
+
+    public String getMarkerId() {
+        return mMarkerId;
+    }
+
+    public void setMarkerId(String markerId) {
+        mMarkerId = markerId;
+    }
+
+    public String getObjectId() {
+        return mObjectId;
+    }
+
+    public void setObjectId(String objectId) {
+        mObjectId = objectId;
+    }
 
     public RestroomLocation() {}
 
@@ -88,6 +106,7 @@ public class RestroomLocation implements Parcelable {
         dest.writeInt(mHandicap);
         dest.writeDouble(mLatitude);
         dest.writeDouble(mLongitude);
+        dest.writeString(mObjectId);
     }
 
     private RestroomLocation(Parcel in) {
@@ -98,6 +117,7 @@ public class RestroomLocation implements Parcelable {
         mHandicap = in.readInt();
         mLatitude = in.readDouble();
         mLongitude = in.readDouble();
+        mObjectId = in.readString();
     }
 
     public static final Creator<RestroomLocation> CREATOR = new Creator<RestroomLocation>() {

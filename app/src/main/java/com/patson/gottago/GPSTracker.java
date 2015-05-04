@@ -121,30 +121,36 @@ public class GPSTracker extends Service implements LocationListener{
     }
 
     public void showSettingsAlert() {
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
-
-        alertDialog.setTitle(getString(R.string.error_title_oops));
-
-        alertDialog.setMessage("GPS is currently disabled. Would you like to turn it on?");
-
-        alertDialog.setPositiveButton("Settings", new DialogInterface.OnClickListener() {
-
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                context.startActivity(intent);
-            }
-        });
-
-        alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
-
-        alertDialog.show();
+//        AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
+//
+//        alertDialog.setTitle(getString(R.string.error_title_oops));
+//
+//        alertDialog.setMessage("You must ");
+//
+//        alertDialog.setPositiveButton("Settings", new DialogInterface.OnClickListener() {
+//
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+//                context.startActivity(intent);
+//            }
+//        });
+//
+//        alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+//
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                dialog.cancel();
+//            }
+//        });
+//
+//        alertDialog.show();
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setMessage(getString(R.string.no_location_error_messsage))
+                .setTitle(getString(R.string.error_title_oops))
+                .setPositiveButton(android.R.string.ok, null);
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     @Override

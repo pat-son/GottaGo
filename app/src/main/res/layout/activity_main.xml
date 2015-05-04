@@ -6,11 +6,13 @@
 
     <fragment xmlns:map="http://schemas.android.com/apk/res-auto"
               android:id="@+id/map"
+
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:layout_weight="1"
               android:scrollbars="vertical"
-              class="com.google.android.gms.maps.SupportMapFragment"/>
+              class="com.google.android.gms.maps.SupportMapFragment"
+              android:name="com.google.android.gms.maps.MapFragment"/>
+    <!-- Removed android:layout_weight="1" -->
 
     <Button
         android:layout_width="wrap_content"
@@ -22,5 +24,18 @@
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="10dp"
         android:layout_marginRight="10dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/gottago_button_text"
+        android:id="@+id/gottaGoButton"
+        android:background="#ff2538ce"
+        android:textColor="@android:color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"/>
 
 </RelativeLayout>
